@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "SDLu_ttf++", "index.html", [
+  [ "SDL_ttf++", "index.html", [
     [ "Class List", "annotated.html", [
       [ "sdl::ttf::Blended", "structsdl_1_1ttf_1_1Blended.html", null ],
       [ "sdl::ttf::Font", "structsdl_1_1ttf_1_1Font.html", null ],
