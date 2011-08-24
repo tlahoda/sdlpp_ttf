@@ -79,43 +79,18 @@ namespace ttf {
             Color color_;
     }; //Solid
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief TEXT specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
     template<>
     Surface Solid::render<TEXT> (const Font& font, const string& text) const {
         return Surface (TTF_RenderText_Solid (*font, text.c_str (), **color_));
     };
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief UTF8 specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //UTF8 specialization
     template<>
     Surface Solid::render<UTF8> (const Font& font, const string& text) const {
         return Surface (TTF_RenderUTF8_Solid (*font, text.c_str (), **color_));
     };
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief UNICODE specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //UNICODE specialization
     template<>
     Surface Solid::render<UNICODE> (const Font& font, const string& text) const {
         return Surface ();//TTF_RenderUNICODE_Solid (*font, text.c_str (), **color_));
@@ -173,43 +148,19 @@ namespace ttf {
             Color bg_;
     }; //Shaded
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief TEXT specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //TEXT specialization
     template<>
     Surface Shaded::render<TEXT> (const Font& font, const string& text) const {
         return Surface (TTF_RenderText_Shaded (*font, text.c_str (), **fg_, **bg_));
     };
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief UTF8 specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //UTF8 specialization
     template<>
     Surface Shaded::render<UTF8> (const Font& font, const string& text) const {
         return Surface (TTF_RenderUTF8_Shaded (*font, text.c_str (), **fg_, **bg_));
     };
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief UNICODE specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //UNICODE specialization
     template<>
     Surface Shaded::render<UNICODE> (const Font& font, const string& text) const {
         return Surface ();//TTF_RenderUNICODE_Shaded (*font, text.c_str (), **fg_, **bg_));
@@ -261,43 +212,19 @@ namespace ttf {
             Color color_;
     }; //Blended
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief TEXT specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //TEXT specialization
     template<>
     Surface Blended::render<TEXT> (const Font& font, const string& text) const {
         return Surface (TTF_RenderText_Blended (*font, text.c_str (), **color_));
     };
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief UTF8 specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //UTF8 specialization
     template<>
     Surface Blended::render<UTF8> (const Font& font, const string& text) const {
         return Surface (TTF_RenderUTF8_Blended (*font, text.c_str (), **color_));
     };
 
-    /**
-     * @overload template<int Encoding> Surface render (const Font& font, const string& text) const
-     * @brief UNICODE specialization. Returns a Surface containg text rendered in font.
-     *
-     * @param font The font to use.
-     * @param text The string to render.
-     *
-     * @return The rendered Surface.
-     */
+    //UNICODE specialization
     template<>
     Surface Blended::render<UNICODE> (const Font& font, const string& text) const {
         return Surface ();//TTF_RenderUNICODE_Blended (*font, text.c_str (), **color_));

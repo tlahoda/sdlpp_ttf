@@ -153,46 +153,19 @@ namespace ttf {
             boost::shared_ptr<TTF_Font> font_;
     }; //Font
 
-    /**
-     * @overload template<int Encoding> void size (const string& text, int* height, int* width) const
-     * @brief TEXT specialization. Returns the size of the text as it would be rendered.
-     *
-     * @tparam Encoding The string encoding.
-     *
-     * @param text The text.
-     * @param height The rendered height.
-     * @param width The rendered width.
-     */
+    //TEXT specialization
     template<>
     void Font::size<TEXT> (const string& text, int* height, int* width) const {
         TTF_SizeText (font_.get (), text.c_str (), width, height);
     };
 
-    /**
-     * @overload template<int Encoding> void size (const string& text, int* height, int* width) const
-     * @brief UTF8 specialization. Returns the size of the text as it would be rendered.
-     *
-     * @tparam Encoding The string encoding.
-     *
-     * @param text The text.
-     * @param height The rendered height.
-     * @param width The rendered width.
-     */
+    //UTF8 specialization
     template<>
     void Font::size<UTF8> (const string& text, int* height, int* width) const {
         TTF_SizeUTF8 (font_.get (), text.c_str (), width, height);
     };
     
-    /**
-     * @overload template<int Encoding> void size (const string& text, int* height, int* width) const
-     * @brief UNICODE specialization. Returns the size of the text as it would be rendered.
-     *
-     * @tparam Encoding The string encoding.
-     *
-     * @param text The text.
-     * @param height The rendered height.
-     * @param width The rendered width.
-     */
+    //UNICODE specialization
     template<>
     void Font::size<UNICODE> (const string& text, int* height, int* width) const {
         //TTF_SizeUNICODE (font_.get (), text.c_str (), width, height);
