@@ -86,6 +86,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sdl::ttf::Glyph" -->
+<p>Represents a character glyph.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Glyph_8h_source.html">Glyph.h</a>&gt;</code></p>
 
 <p><a href="structsdl_1_1ttf_1_1Glyph-members.html">List of all members.</a></p>
@@ -101,9 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdl_1_1ttf_1_1Glyph.html#a838d2f327fc0a5b60c3c80e3e9425c7d">advance</a> () const </td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>character glyph. </p>
+<div class="textblock"><p>Represents a character glyph. </p>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00034">34</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00036">36</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab9cb0672ab88b45dfd984446dc467f02"></a><!-- doxytag: member="sdl::ttf::Glyph::Glyph" ref="ab9cb0672ab88b45dfd984446dc467f02" args="(const Font &amp;font, char c)" -->
 <div class="memitem">
@@ -131,22 +134,22 @@ template&lt;class Font &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Constructs a <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a> of c using font.</p>
+<p>Constructs a <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a> of c using font.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname"><a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a>,The</td><td><a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a>. This is templated to avoid an include conflict.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a></td><td>The <a class="el" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>. This is templated to avoid an include conflict.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td><a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, The <a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a> to use. </td></tr>
-    <tr><td class="paramname">char</td><td>c, The character for which to create the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>. </td></tr>
+    <tr><td class="paramname">font</td><td>The <a class="el" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a> to use. </td></tr>
+    <tr><td class="paramname">c</td><td>The character for which to create the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a>. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00044">44</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00046">46</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 
 </div>
 </div>
@@ -164,10 +167,10 @@ template&lt;class Font &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns the width of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a> including spacing.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The width including spacing. </dd></dl>
+<p>Returns the width of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a> including spacing.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The width including spacing. </dd></dl>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00083">83</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00085">85</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 
 </div>
 </div>
@@ -184,10 +187,10 @@ template&lt;class Font &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns the right side of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The right side. </dd></dl>
+<p>Returns the right side of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a>.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The right side. </dd></dl>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00062">62</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00064">64</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 
 </div>
 </div>
@@ -204,10 +207,10 @@ template&lt;class Font &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns the top of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The top. </dd></dl>
+<p>Returns the top of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a>.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The top. </dd></dl>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00076">76</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00078">78</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 
 </div>
 </div>
@@ -224,10 +227,10 @@ template&lt;class Font &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns the left side of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The left side. </dd></dl>
+<p>Returns the left side of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a>.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The left side. </dd></dl>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00055">55</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00057">57</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 
 </div>
 </div>
@@ -244,10 +247,10 @@ template&lt;class Font &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns the bottom of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The bottom. </dd></dl>
+<p>Returns the bottom of the <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a>.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The bottom. </dd></dl>
 
-<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00069">69</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
+<p>Definition at line <a class="el" href="Glyph_8h_source.html#l00071">71</a> of file <a class="el" href="Glyph_8h_source.html">Glyph.h</a>.</p>
 
 </div>
 </div>
@@ -261,7 +264,7 @@ template&lt;class Font &gt; </div>
       <li class="navelem"><a class="el" href="namespacesdl.html">sdl</a>      </li>
       <li class="navelem"><a class="el" href="namespacesdl_1_1ttf.html">ttf</a>      </li>
       <li class="navelem"><a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>      </li>
-      <li class="footer">Generated on Tue Aug 23 2011 19:42:30 for SDL_ttf++ by&#160;
+      <li class="footer">Generated on Tue Aug 23 2011 20:45:57 for SDL_ttf++ by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

@@ -82,57 +82,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="Glyph_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00020"></a>00020 <span class="preprocessor">#ifndef SDL_TTF_GLYPH_H</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define SDL_TTF_GLYPH_H</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>sdl {
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>ttf {
-<a name="l00029"></a>00029     <span class="keyword">using namespace </span>std;
-<a name="l00030"></a>00030 
-<a name="l00034"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html">00034</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a> {
-<a name="l00043"></a>00043         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Font&gt;
-<a name="l00044"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#ab9cb0672ab88b45dfd984446dc467f02">00044</a>         <a class="code" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keywordtype">char</span> c) 
-<a name="l00045"></a>00045           : minx_ (), maxx_ (), miny_ (), maxy_ (), advance_ () {
-<a name="l00046"></a>00046             <span class="keywordflow">if</span> (!TTF_GlyphMetrics (*font, c, &amp;minx_, &amp;maxx_, &amp;miny_, &amp;maxy_, &amp;advance_))
-<a name="l00047"></a>00047                 <span class="keywordflow">throw</span> runtime_error (TTF_GetError ());
-<a name="l00048"></a>00048         };
-<a name="l00049"></a>00049 
-<a name="l00055"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a9c6bec7d754c8dae3a16dcb6aea0306b">00055</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a9c6bec7d754c8dae3a16dcb6aea0306b">minx</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> minx_; };
-<a name="l00056"></a>00056         
-<a name="l00062"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a71387ea089da7ff6b32b56c1885dc97e">00062</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a71387ea089da7ff6b32b56c1885dc97e">maxx</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxx_; };
-<a name="l00063"></a>00063         
-<a name="l00069"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a162b87c43ec4e5a2bd610d411bca733b">00069</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a162b87c43ec4e5a2bd610d411bca733b">miny</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> miny_; };
-<a name="l00070"></a>00070         
-<a name="l00076"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a20abe7bf540111c5ab4e200e9a1d537d">00076</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a20abe7bf540111c5ab4e200e9a1d537d">maxy</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxy_; };
-<a name="l00077"></a>00077         
-<a name="l00083"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a838d2f327fc0a5b60c3c80e3e9425c7d">00083</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a838d2f327fc0a5b60c3c80e3e9425c7d">advance</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> advance_; };
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085         <span class="keyword">private</span>:
-<a name="l00089"></a>00089             <span class="keywordtype">int</span> minx_;
-<a name="l00090"></a>00090             
-<a name="l00094"></a>00094             <span class="keywordtype">int</span> maxx_;
-<a name="l00095"></a>00095             
-<a name="l00099"></a>00099             <span class="keywordtype">int</span> miny_;
-<a name="l00100"></a>00100             
-<a name="l00104"></a>00104             <span class="keywordtype">int</span> maxy_;
-<a name="l00105"></a>00105 
-<a name="l00109"></a>00109             <span class="keywordtype">int</span> advance_;
-<a name="l00110"></a>00110     }; <span class="comment">//Glyph</span>
-<a name="l00111"></a>00111 }; <span class="comment">//ttf</span>
-<a name="l00112"></a>00112 }; <span class="comment">//sdl</span>
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="preprocessor">#endif //SDL_TTF_GLYPH_H</span>
-<a name="l00115"></a>00115 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef SDL_TTF_GLYPH_H</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define SDL_TTF_GLYPH_H</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>sdl {
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>ttf {
+<a name="l00030"></a>00030     <span class="keyword">using namespace </span>std;
+<a name="l00031"></a>00031 
+<a name="l00036"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html">00036</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a> {
+<a name="l00045"></a>00045         <span class="keyword">template</span>&lt;<span class="keyword">class</span> Font&gt;
+<a name="l00046"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#ab9cb0672ab88b45dfd984446dc467f02">00046</a>         <a class="code" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keywordtype">char</span> c) 
+<a name="l00047"></a>00047           : minx_ (), maxx_ (), miny_ (), maxy_ (), advance_ () {
+<a name="l00048"></a>00048             <span class="keywordflow">if</span> (!TTF_GlyphMetrics (*font, c, &amp;minx_, &amp;maxx_, &amp;miny_, &amp;maxy_, &amp;advance_))
+<a name="l00049"></a>00049                 <span class="keywordflow">throw</span> runtime_error (TTF_GetError ());
+<a name="l00050"></a>00050         };
+<a name="l00051"></a>00051 
+<a name="l00057"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a9c6bec7d754c8dae3a16dcb6aea0306b">00057</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a9c6bec7d754c8dae3a16dcb6aea0306b">minx</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> minx_; };
+<a name="l00058"></a>00058         
+<a name="l00064"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a71387ea089da7ff6b32b56c1885dc97e">00064</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a71387ea089da7ff6b32b56c1885dc97e">maxx</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxx_; };
+<a name="l00065"></a>00065         
+<a name="l00071"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a162b87c43ec4e5a2bd610d411bca733b">00071</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a162b87c43ec4e5a2bd610d411bca733b">miny</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> miny_; };
+<a name="l00072"></a>00072         
+<a name="l00078"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a20abe7bf540111c5ab4e200e9a1d537d">00078</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a20abe7bf540111c5ab4e200e9a1d537d">maxy</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> maxy_; };
+<a name="l00079"></a>00079         
+<a name="l00085"></a><a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a838d2f327fc0a5b60c3c80e3e9425c7d">00085</a>         <span class="keywordtype">int</span> <a class="code" href="structsdl_1_1ttf_1_1Glyph.html#a838d2f327fc0a5b60c3c80e3e9425c7d">advance</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> advance_; };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         <span class="keyword">private</span>:
+<a name="l00091"></a>00091             <span class="keywordtype">int</span> minx_;
+<a name="l00092"></a>00092             
+<a name="l00096"></a>00096             <span class="keywordtype">int</span> maxx_;
+<a name="l00097"></a>00097             
+<a name="l00101"></a>00101             <span class="keywordtype">int</span> miny_;
+<a name="l00102"></a>00102             
+<a name="l00106"></a>00106             <span class="keywordtype">int</span> maxy_;
+<a name="l00107"></a>00107 
+<a name="l00111"></a>00111             <span class="keywordtype">int</span> advance_;
+<a name="l00112"></a>00112     }; <span class="comment">//Glyph</span>
+<a name="l00113"></a>00113 }; <span class="comment">//ttf</span>
+<a name="l00114"></a>00114 }; <span class="comment">//sdl</span>
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="preprocessor">#endif //SDL_TTF_GLYPH_H</span>
+<a name="l00117"></a>00117 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="Glyph_8h.html">Glyph.h</a>      </li>
-      <li class="footer">Generated on Tue Aug 23 2011 19:42:29 for SDL_ttf++ by&#160;
+      <li class="footer">Generated on Tue Aug 23 2011 20:45:57 for SDL_ttf++ by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

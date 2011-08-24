@@ -82,71 +82,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="FontManager_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00020"></a>00020 <span class="preprocessor">#ifndef SDL_TTF_FONTMANAGER_H</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define SDL_TTF_FONTMANAGER_H</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;sdlpp_ttf/subsystem/TTF.h&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;sdlpp_ttf/ttf/Font.h&quot;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>sdl {
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>ttf {
-<a name="l00031"></a>00031     <span class="keyword">using namespace </span>std;
-<a name="l00032"></a>00032 
-<a name="l00036"></a><a class="code" href="structsdl_1_1ttf_1_1FontManager.html">00036</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1FontManager.html">FontManager</a> {
-<a name="l00042"></a><a class="code" href="structsdl_1_1ttf_1_1FontManager.html#a01514f837a3ff7d9c2e25e8a118b07fb">00042</a>         <span class="keyword">static</span> <a class="code" href="structsdl_1_1ttf_1_1FontManager.html">FontManager</a>&amp; <a class="code" href="structsdl_1_1ttf_1_1FontManager.html#a01514f837a3ff7d9c2e25e8a118b07fb">instance</a> () {
-<a name="l00043"></a>00043             <span class="keyword">static</span> <a class="code" href="structsdl_1_1ttf_1_1FontManager.html">FontManager</a> instance_;
-<a name="l00044"></a>00044             <span class="keywordflow">return</span> instance_;
-<a name="l00045"></a>00045         };
-<a name="l00046"></a>00046     
-<a name="l00047"></a>00047         <span class="comment">//~FontManager ();</span>
-<a name="l00048"></a>00048    
-<a name="l00057"></a><a class="code" href="structsdl_1_1ttf_1_1FontManager.html#aed9d590cf32fe4114bd74bba7779ca00">00057</a>         <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a> <a class="code" href="structsdl_1_1ttf_1_1FontManager.html#aed9d590cf32fe4114bd74bba7779ca00">font</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fileName, <span class="keywordtype">int</span> pointSize) {
-<a name="l00058"></a>00058             FontMap::iterator nameIter = fonts_.find (fileName);
-<a name="l00059"></a>00059             <span class="keywordflow">if</span> (nameIter != fonts_.end ()) {
-<a name="l00060"></a>00060                 FontSizeMap::iterator sizeIter = nameIter-&gt;second.find (pointSize);
-<a name="l00061"></a>00061                 <span class="keywordflow">if</span> (sizeIter != nameIter-&gt;second.end ()) {
-<a name="l00062"></a>00062                     <span class="keywordflow">return</span> sizeIter-&gt;second;
-<a name="l00063"></a>00063                 } <span class="keywordflow">else</span> {
-<a name="l00064"></a>00064                     <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a> font (fileName, pointSize);
-<a name="l00065"></a>00065                     nameIter-&gt;second.insert (make_pair (pointSize, font));
-<a name="l00066"></a>00066                     <span class="keywordflow">return</span> font;
-<a name="l00067"></a>00067                 }
-<a name="l00068"></a>00068             } <span class="keywordflow">else</span> {
-<a name="l00069"></a>00069                 <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a> font (fileName, pointSize);
-<a name="l00070"></a>00070                 FontSizeMap sizeMap;
-<a name="l00071"></a>00071                 sizeMap.insert (make_pair (pointSize, font));
-<a name="l00072"></a>00072                 fonts_.insert (make_pair (fileName, sizeMap));
-<a name="l00073"></a>00073                 <span class="keywordflow">return</span> font;
-<a name="l00074"></a>00074             }
-<a name="l00075"></a>00075         };
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077         <span class="keyword">private</span>:
-<a name="l00081"></a>00081             <a class="code" href="structsdl_1_1ttf_1_1FontManager.html">FontManager</a>() : fonts_ () { <a class="code" href="structsdl_1_1subsystem_1_1TTF.html#a5bdbc942a962839cdce709f3642e9559">subsystem::TTF::instance</a> (); };
-<a name="l00082"></a>00082            
-<a name="l00088"></a>00088             FontManager (<span class="keyword">const</span> FontManager&amp; rhs);
-<a name="l00089"></a>00089             
-<a name="l00097"></a>00097             FontManager&amp; operator= (<span class="keyword">const</span> FontManager&amp; rhs);
-<a name="l00098"></a>00098 
-<a name="l00102"></a>00102             <span class="keyword">typedef</span> map&lt;int, Font&gt; FontSizeMap;
-<a name="l00103"></a>00103 
-<a name="l00107"></a>00107             <span class="keyword">typedef</span> map&lt;string, FontSizeMap&gt; FontMap;
-<a name="l00108"></a>00108 
-<a name="l00112"></a>00112             FontMap fonts_;
-<a name="l00113"></a>00113     }; <span class="comment">//FontManager</span>
-<a name="l00114"></a>00114 }; <span class="comment">//ttf</span>
-<a name="l00115"></a>00115 }; <span class="comment">//sdl</span>
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117 <span class="preprocessor">#endif //SDL_TTF_FONTMANAGER_H</span>
-<a name="l00118"></a>00118 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef SDL_TTF_FONTMANAGER_H</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define SDL_TTF_FONTMANAGER_H</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;sdlpp_ttf/subsystem/TTF.h&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;sdlpp_ttf/ttf/Font.h&quot;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>sdl {
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>ttf {
+<a name="l00032"></a>00032     <span class="keyword">using namespace </span>std;
+<a name="l00033"></a>00033 
+<a name="l00038"></a><a class="code" href="structsdl_1_1ttf_1_1FontManager.html">00038</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1FontManager.html" title="Manages fonts.">FontManager</a> {
+<a name="l00044"></a><a class="code" href="structsdl_1_1ttf_1_1FontManager.html#a01514f837a3ff7d9c2e25e8a118b07fb">00044</a>         <span class="keyword">static</span> <a class="code" href="structsdl_1_1ttf_1_1FontManager.html" title="Manages fonts.">FontManager</a>&amp; <a class="code" href="structsdl_1_1ttf_1_1FontManager.html#a01514f837a3ff7d9c2e25e8a118b07fb">instance</a> () {
+<a name="l00045"></a>00045             <span class="keyword">static</span> <a class="code" href="structsdl_1_1ttf_1_1FontManager.html" title="Manages fonts.">FontManager</a> instance_;
+<a name="l00046"></a>00046             <span class="keywordflow">return</span> instance_;
+<a name="l00047"></a>00047         };
+<a name="l00048"></a>00048     
+<a name="l00049"></a>00049         <span class="comment">//~FontManager ();</span>
+<a name="l00050"></a>00050    
+<a name="l00059"></a><a class="code" href="structsdl_1_1ttf_1_1FontManager.html#aed9d590cf32fe4114bd74bba7779ca00">00059</a>         <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a> <a class="code" href="structsdl_1_1ttf_1_1FontManager.html#aed9d590cf32fe4114bd74bba7779ca00">font</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; fileName, <span class="keywordtype">int</span> pointSize) {
+<a name="l00060"></a>00060             FontMap::iterator nameIter = fonts_.find (fileName);
+<a name="l00061"></a>00061             <span class="keywordflow">if</span> (nameIter != fonts_.end ()) {
+<a name="l00062"></a>00062                 FontSizeMap::iterator sizeIter = nameIter-&gt;second.find (pointSize);
+<a name="l00063"></a>00063                 <span class="keywordflow">if</span> (sizeIter != nameIter-&gt;second.end ()) {
+<a name="l00064"></a>00064                     <span class="keywordflow">return</span> sizeIter-&gt;second;
+<a name="l00065"></a>00065                 } <span class="keywordflow">else</span> {
+<a name="l00066"></a>00066                     <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a> font (fileName, pointSize);
+<a name="l00067"></a>00067                     nameIter-&gt;second.insert (make_pair (pointSize, font));
+<a name="l00068"></a>00068                     <span class="keywordflow">return</span> font;
+<a name="l00069"></a>00069                 }
+<a name="l00070"></a>00070             } <span class="keywordflow">else</span> {
+<a name="l00071"></a>00071                 <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a> font (fileName, pointSize);
+<a name="l00072"></a>00072                 FontSizeMap sizeMap;
+<a name="l00073"></a>00073                 sizeMap.insert (make_pair (pointSize, font));
+<a name="l00074"></a>00074                 fonts_.insert (make_pair (fileName, sizeMap));
+<a name="l00075"></a>00075                 <span class="keywordflow">return</span> font;
+<a name="l00076"></a>00076             }
+<a name="l00077"></a>00077         };
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079         <span class="keyword">private</span>:
+<a name="l00083"></a>00083             <a class="code" href="structsdl_1_1ttf_1_1FontManager.html" title="Manages fonts.">FontManager</a>() : fonts_ () { <a class="code" href="structsdl_1_1subsystem_1_1TTF.html#a5bdbc942a962839cdce709f3642e9559">subsystem::TTF::instance</a> (); };
+<a name="l00084"></a>00084            
+<a name="l00090"></a>00090             FontManager (<span class="keyword">const</span> FontManager&amp; rhs);
+<a name="l00091"></a>00091             
+<a name="l00099"></a>00099             FontManager&amp; operator= (<span class="keyword">const</span> FontManager&amp; rhs);
+<a name="l00100"></a>00100 
+<a name="l00105"></a>00105             <span class="keyword">typedef</span> map&lt;int, Font&gt; FontSizeMap;
+<a name="l00106"></a>00106 
+<a name="l00111"></a>00111             <span class="keyword">typedef</span> map&lt;string, FontSizeMap&gt; FontMap;
+<a name="l00112"></a>00112 
+<a name="l00116"></a>00116             FontMap fonts_;
+<a name="l00117"></a>00117     }; <span class="comment">//FontManager</span>
+<a name="l00118"></a>00118 }; <span class="comment">//ttf</span>
+<a name="l00119"></a>00119 }; <span class="comment">//sdl</span>
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 <span class="preprocessor">#endif //SDL_TTF_FONTMANAGER_H</span>
+<a name="l00122"></a>00122 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="FontManager_8h.html">FontManager.h</a>      </li>
-      <li class="footer">Generated on Tue Aug 23 2011 19:42:29 for SDL_ttf++ by&#160;
+      <li class="footer">Generated on Tue Aug 23 2011 20:45:57 for SDL_ttf++ by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

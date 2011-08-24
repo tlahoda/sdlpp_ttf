@@ -86,6 +86,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sdl::ttf::Font" -->
+<p>Represents a font.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Font_8h_source.html">Font.h</a>&gt;</code></p>
 
 <p><a href="structsdl_1_1ttf_1_1Font-members.html">List of all members.</a></p>
@@ -110,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Represents a font. </p>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00043">43</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00046">46</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a111508ec6417603a3531aa3ceddaff66"></a><!-- doxytag: member="sdl::ttf::Font::Font" ref="a111508ec6417603a3531aa3ceddaff66" args="(const string &amp;filename, int pointSize)" -->
 <div class="memitem">
@@ -138,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 <p>Constructs a font, with the given point size, from a file. </p>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00047">47</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00050">50</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -155,9 +158,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Destroys the <a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a>. </p>
+<p>Destroys the <a class="el" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>. </p>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00056">56</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00059">59</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -176,9 +179,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Returns the maximum pixel ascent of all Glyphs of the font.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The maximum pixel ascent. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The maximum pixel ascent. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00118">118</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00119">119</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -196,9 +199,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Returns the maximum pixel descent of all Glyphs of the font.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The maximum pixel descent. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The maximum pixel descent. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00125">125</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00126">126</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -216,9 +219,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Gets the font's style.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The style. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The style. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00139">139</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00140">140</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -236,16 +239,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns a <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a> of c.</p>
+<p>Returns a <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a> of c.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">char</td><td>c, The character to render.</td></tr>
+    <tr><td class="paramname">c</td><td>The character to render.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a>, A <a class="el" href="structsdl_1_1ttf_1_1Glyph.html">Glyph</a> containing the character. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A <a class="el" href="structsdl_1_1ttf_1_1Glyph.html" title="Represents a character glyph.">Glyph</a> containing the character. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00097">97</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00098">98</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -263,9 +266,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Returns the font height.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The height. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The height. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00111">111</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00112">112</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -283,9 +286,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Returns the recommended pixel height of a line of text for the font.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>int, The recommended line height. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The recommended line height. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00132">132</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00133">133</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -303,9 +306,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Returns the underlying TTF_Font structure.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>TTF_Font*, The underlying TTF_Font structure. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The underlying TTF_Font structure. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00104">104</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00105">105</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -338,21 +341,21 @@ template&lt;int Encoding, class RenderMode &gt; </div>
 <p>Returns a Surface containg the text rendered in the render mode.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">Encoding,The</td><td>string encoding. </td></tr>
-    <tr><td class="paramname">RenderMode,The</td><td>mode to use in rendering.</td></tr>
+    <tr><td class="paramname">Encoding</td><td>The string encoding. </td></tr>
+    <tr><td class="paramname">RenderMode</td><td>The mode to use in rendering.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>string&amp; text, The string to render. </td></tr>
-    <tr><td class="paramname">const</td><td>RenderMode&amp; mode, The mode to use in rendering.</td></tr>
+    <tr><td class="paramname">text</td><td>The string to render. </td></tr>
+    <tr><td class="paramname">mode</td><td>The mode to use in rendering.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Surface, The rendered Surface. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The rendered Surface. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00070">70</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00073">73</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -373,13 +376,12 @@ template&lt;int Encoding, class RenderMode &gt; </div>
 <p>Sets the fon't style.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">int</td><td>style, The style.</td></tr>
+    <tr><td class="paramname">style</td><td>The style. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>void. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00148">148</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00147">147</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -416,69 +418,65 @@ template&lt;int Encoding, class RenderMode &gt; </div>
 <p>Returns the size of the text as it would be rendered.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">Encoding,The</td><td>string encoding.</td></tr>
+    <tr><td class="paramname">Encoding</td><td>The string encoding.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>string&amp; text, The text. </td></tr>
-    <tr><td class="paramname">int*</td><td>height, The rendered height. </td></tr>
-    <tr><td class="paramname">int*</td><td>width, The rendered width.</td></tr>
+    <tr><td class="paramname">text</td><td>The text. </td></tr>
+    <tr><td class="paramname">height</td><td>The rendered height. </td></tr>
+    <tr><td class="paramname">width</td><td>The rendered width.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>void.</dd></dl>
 <p>TEXT specialization. Returns the size of the text as it would be rendered.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">Encoding,The</td><td>string encoding.</td></tr>
+    <tr><td class="paramname">Encoding</td><td>The string encoding.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>string&amp; text, The text. </td></tr>
-    <tr><td class="paramname">int*</td><td>height, The rendered height. </td></tr>
-    <tr><td class="paramname">int*</td><td>width, The rendered width.</td></tr>
+    <tr><td class="paramname">text</td><td>The text. </td></tr>
+    <tr><td class="paramname">height</td><td>The rendered height. </td></tr>
+    <tr><td class="paramname">width</td><td>The rendered width.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>void.</dd></dl>
 <p>UTF8 specialization. Returns the size of the text as it would be rendered.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">Encoding,The</td><td>string encoding.</td></tr>
+    <tr><td class="paramname">Encoding</td><td>The string encoding.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>string&amp; text, The text. </td></tr>
-    <tr><td class="paramname">int*</td><td>height, The rendered height. </td></tr>
-    <tr><td class="paramname">int*</td><td>width, The rendered width.</td></tr>
+    <tr><td class="paramname">text</td><td>The text. </td></tr>
+    <tr><td class="paramname">height</td><td>The rendered height. </td></tr>
+    <tr><td class="paramname">width</td><td>The rendered width.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>void.</dd></dl>
 <p>UNICODE specialization. Returns the size of the text as it would be rendered.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">Encoding,The</td><td>string encoding.</td></tr>
+    <tr><td class="paramname">Encoding</td><td>The string encoding.</td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">const</td><td>string&amp; text, The text. </td></tr>
-    <tr><td class="paramname">int*</td><td>height, The rendered height. </td></tr>
-    <tr><td class="paramname">int*</td><td>width, The rendered width.</td></tr>
+    <tr><td class="paramname">text</td><td>The text. </td></tr>
+    <tr><td class="paramname">height</td><td>The rendered height. </td></tr>
+    <tr><td class="paramname">width</td><td>The rendered width. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>void. </dd></dl>
 
-<p>Definition at line <a class="el" href="Font_8h_source.html#l00086">86</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
+<p>Definition at line <a class="el" href="Font_8h_source.html#l00087">87</a> of file <a class="el" href="Font_8h_source.html">Font.h</a>.</p>
 
 </div>
 </div>
@@ -492,7 +490,7 @@ template&lt;int Encoding, class RenderMode &gt; </div>
       <li class="navelem"><a class="el" href="namespacesdl.html">sdl</a>      </li>
       <li class="navelem"><a class="el" href="namespacesdl_1_1ttf.html">ttf</a>      </li>
       <li class="navelem"><a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a>      </li>
-      <li class="footer">Generated on Tue Aug 23 2011 19:42:29 for SDL_ttf++ by&#160;
+      <li class="footer">Generated on Tue Aug 23 2011 20:45:57 for SDL_ttf++ by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>

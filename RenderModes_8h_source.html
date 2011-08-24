@@ -82,126 +82,126 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="RenderModes_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00020"></a>00020 <span class="preprocessor">#ifndef SDL_TTF_RENDERMODES_H</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define SDL_TTF_RENDERMODES_H</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;sdlpp/video/Surface.h&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;sdlpp/misc/Color.h&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;sdlpp_ttf/ttf/Font.h&quot;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>sdl {
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>ttf {
-<a name="l00031"></a>00031     <span class="keyword">using namespace </span>std;
-<a name="l00032"></a>00032     <span class="keyword">using namespace </span>misc;
-<a name="l00033"></a>00033     <span class="keyword">using namespace </span>video;
-<a name="l00034"></a>00034 
-<a name="l00038"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html">00038</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Solid.html">Solid</a> {
-<a name="l00044"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html#a6ef35961044c408a8f7dc46cb03d9867">00044</a>         <a class="code" href="structsdl_1_1ttf_1_1Solid.html#a6ef35961044c408a8f7dc46cb03d9867">Solid</a> (<span class="keyword">const</span> Color&amp; color) : color_ (color) {};
-<a name="l00045"></a>00045 
-<a name="l00054"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html#ac28dbb22a8c09ae789933df538ff4c11">00054</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Solid.html#ac28dbb22a8c09ae789933df538ff4c11">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
-<a name="l00055"></a>00055             <span class="keywordflow">return</span> Surface (TTF_RenderGlyph_Solid (*font, c, **color_));
-<a name="l00056"></a>00056         };
-<a name="l00057"></a>00057 
-<a name="l00068"></a>00068         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Encoding&gt;
-<a name="l00069"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html#a2e61f69b0dff1075a25635a61d83ad0b">00069</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Solid.html#a2e61f69b0dff1075a25635a61d83ad0b">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text)<span class="keyword"> const </span>{
-<a name="l00070"></a>00070             <span class="keywordflow">return</span> Surface (TTF_RenderText_Solid (*font, text.c_str (), **color_));
-<a name="l00071"></a>00071         };
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073         <span class="keyword">private</span>:
-<a name="l00077"></a>00077             Color color_;
-<a name="l00078"></a>00078     }; <span class="comment">//Solid</span>
-<a name="l00079"></a>00079 
-<a name="l00088"></a>00088     <span class="keyword">template</span>&lt;&gt;
-<a name="l00089"></a>00089     Surface Solid::render&lt;TEXT&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
-<a name="l00090"></a>00090         <span class="keywordflow">return</span> Surface (TTF_RenderText_Solid (*font, text.c_str (), **color_));
-<a name="l00091"></a>00091     };
-<a name="l00092"></a>00092 
-<a name="l00101"></a>00101     <span class="keyword">template</span>&lt;&gt;
-<a name="l00102"></a>00102     Surface Solid::render&lt;UTF8&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
-<a name="l00103"></a>00103         <span class="keywordflow">return</span> Surface (TTF_RenderUTF8_Solid (*font, text.c_str (), **color_));
-<a name="l00104"></a>00104     };
-<a name="l00105"></a>00105 
-<a name="l00114"></a>00114     <span class="comment">/*template&lt;&gt;</span>
-<a name="l00115"></a>00115 <span class="comment">    Surface Solid::render&lt;UNICODE&gt; (const Font&amp; font, const string&amp; text) const {</span>
-<a name="l00116"></a>00116 <span class="comment">        return /Surface (TTF_RenderUNICODE_Solid (*font, text.c_str (), **color_));</span>
-<a name="l00117"></a>00117 <span class="comment">    };*/</span>
-<a name="l00118"></a>00118 
-<a name="l00122"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html">00122</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Shaded.html">Shaded</a> {
-<a name="l00129"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a3dbb56b0b4d52057d89c0af8c7ed1077">00129</a>         <a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a3dbb56b0b4d52057d89c0af8c7ed1077">Shaded</a> (<span class="keyword">const</span> Color&amp; fg, <span class="keyword">const</span> Color&amp; bg) : fg_ (fg), bg_ (bg) {};
-<a name="l00130"></a>00130 
-<a name="l00139"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a81bfaf5d21a6860ead2135169055a11c">00139</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a81bfaf5d21a6860ead2135169055a11c">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
-<a name="l00140"></a>00140             <span class="keywordflow">return</span> TTF_RenderGlyph_Shaded (*font, c, **fg_, **bg_);
-<a name="l00141"></a>00141         };
-<a name="l00142"></a>00142 
-<a name="l00153"></a>00153         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Encoding&gt;
-<a name="l00154"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a9bd5e28c90f6ec16832164cb74f973a3">00154</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a9bd5e28c90f6ec16832164cb74f973a3">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text)<span class="keyword"> const </span>{
-<a name="l00155"></a>00155             <span class="keywordflow">return</span> Surface (TTF_RenderText_Shaded (*font, text.c_str (), **fg_, **bg_));
-<a name="l00156"></a>00156         };
-<a name="l00157"></a>00157 
-<a name="l00158"></a>00158         <span class="keyword">private</span>:
-<a name="l00162"></a>00162             Color fg_;
-<a name="l00163"></a>00163 
-<a name="l00167"></a>00167             Color bg_;
-<a name="l00168"></a>00168     }; <span class="comment">//Shaded</span>
-<a name="l00169"></a>00169 
-<a name="l00178"></a>00178     <span class="keyword">template</span>&lt;&gt;
-<a name="l00179"></a>00179     Surface Shaded::render&lt;TEXT&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
-<a name="l00180"></a>00180         <span class="keywordflow">return</span> Surface (TTF_RenderText_Shaded (*font, text.c_str (), **fg_, **bg_));
-<a name="l00181"></a>00181     };
-<a name="l00182"></a>00182 
-<a name="l00191"></a>00191     <span class="keyword">template</span>&lt;&gt;
-<a name="l00192"></a>00192     Surface Shaded::render&lt;UTF8&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
-<a name="l00193"></a>00193         <span class="keywordflow">return</span> Surface (TTF_RenderUTF8_Shaded (*font, text.c_str (), **fg_, **bg_));
-<a name="l00194"></a>00194     };
-<a name="l00195"></a>00195 
-<a name="l00204"></a>00204     <span class="comment">/*template&lt;&gt;</span>
-<a name="l00205"></a>00205 <span class="comment">    Surface Shaded::render&lt;UNICODE&gt; (const Font&amp; font, const string&amp; text) const {</span>
-<a name="l00206"></a>00206 <span class="comment">        return Surface (TTF_RenderUNICODE_Shaded (*font, text.c_str (), **fg_, **bg_));</span>
-<a name="l00207"></a>00207 <span class="comment">    };*/</span>
-<a name="l00208"></a>00208 
-<a name="l00212"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html">00212</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Blended.html">Blended</a> {
-<a name="l00218"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html#a72d17879e1127abda584f78a3eeb0e8a">00218</a>         <a class="code" href="structsdl_1_1ttf_1_1Blended.html#a72d17879e1127abda584f78a3eeb0e8a">Blended</a> (<span class="keyword">const</span> Color&amp; color) : color_ (color) {};
-<a name="l00219"></a>00219 
-<a name="l00228"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html#a2ee73a5fd8fd2f1af20de5654366915c">00228</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Blended.html#a2ee73a5fd8fd2f1af20de5654366915c">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
-<a name="l00229"></a>00229             <span class="keywordflow">return</span> Surface (TTF_RenderGlyph_Blended (*font, c, **color_));
-<a name="l00230"></a>00230         };
-<a name="l00231"></a>00231 
-<a name="l00242"></a>00242         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Encoding&gt;
-<a name="l00243"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html#a6f75ed31298c6396627afe237f7f6ff4">00243</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Blended.html#a6f75ed31298c6396627afe237f7f6ff4">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html">Font</a>&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text)<span class="keyword"> const </span>{
-<a name="l00244"></a>00244             <span class="keywordflow">return</span> Surface (TTF_RenderText_Blended (*font, text.c_str (), **color_));
-<a name="l00245"></a>00245         };
-<a name="l00246"></a>00246 
-<a name="l00247"></a>00247         <span class="keyword">private</span>:
-<a name="l00251"></a>00251             Color color_;
-<a name="l00252"></a>00252     }; <span class="comment">//Blended</span>
-<a name="l00253"></a>00253 
-<a name="l00262"></a>00262     <span class="keyword">template</span>&lt;&gt;
-<a name="l00263"></a>00263     Surface Blended::render&lt;TEXT&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
-<a name="l00264"></a>00264         <span class="keywordflow">return</span> Surface (TTF_RenderText_Blended (*font, text.c_str (), **color_));
-<a name="l00265"></a>00265     };
-<a name="l00266"></a>00266 
-<a name="l00275"></a>00275     <span class="keyword">template</span>&lt;&gt;
-<a name="l00276"></a>00276     Surface Blended::render&lt;UTF8&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
-<a name="l00277"></a>00277         <span class="keywordflow">return</span> Surface (TTF_RenderUTF8_Blended (*font, text.c_str (), **color_));
-<a name="l00278"></a>00278     };
-<a name="l00279"></a>00279 
-<a name="l00288"></a>00288     <span class="comment">/*template&lt;&gt;</span>
-<a name="l00289"></a>00289 <span class="comment">    Surface Blended::render&lt;UNICODE&gt; (const Font&amp; font, const string&amp; text) const {</span>
-<a name="l00290"></a>00290 <span class="comment">        return Surface (TTF_RenderUNICODE_Blended (*font, text.c_str (), **color_));</span>
-<a name="l00291"></a>00291 <span class="comment">    };*/</span>
-<a name="l00292"></a>00292 }; <span class="comment">//ttf</span>
-<a name="l00293"></a>00293 }; <span class="comment">//sdl</span>
-<a name="l00294"></a>00294 
-<a name="l00295"></a>00295 <span class="preprocessor">#endif //SDL_TTF_RENDERMODES_H</span>
-<a name="l00296"></a>00296 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef SDL_TTF_RENDERMODES_H</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define SDL_TTF_RENDERMODES_H</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;sdlpp/video/Surface.h&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;sdlpp/misc/Color.h&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;sdlpp_ttf/ttf/Font.h&quot;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>sdl {
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>ttf {
+<a name="l00032"></a>00032     <span class="keyword">using namespace </span>std;
+<a name="l00033"></a>00033     <span class="keyword">using namespace </span>misc;
+<a name="l00034"></a>00034     <span class="keyword">using namespace </span>video;
+<a name="l00035"></a>00035 
+<a name="l00040"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html">00040</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Solid.html" title="Renders a font as solid.">Solid</a> {
+<a name="l00046"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html#a6ef35961044c408a8f7dc46cb03d9867">00046</a>         <a class="code" href="structsdl_1_1ttf_1_1Solid.html#a6ef35961044c408a8f7dc46cb03d9867">Solid</a> (<span class="keyword">const</span> Color&amp; color) : color_ (color) {};
+<a name="l00047"></a>00047 
+<a name="l00056"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html#ac28dbb22a8c09ae789933df538ff4c11">00056</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Solid.html#ac28dbb22a8c09ae789933df538ff4c11">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
+<a name="l00057"></a>00057             <span class="keywordflow">return</span> Surface (TTF_RenderGlyph_Solid (*font, c, **color_));
+<a name="l00058"></a>00058         };
+<a name="l00059"></a>00059 
+<a name="l00070"></a>00070         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Encoding&gt;
+<a name="l00071"></a><a class="code" href="structsdl_1_1ttf_1_1Solid.html#a2e61f69b0dff1075a25635a61d83ad0b">00071</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Solid.html#a2e61f69b0dff1075a25635a61d83ad0b">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text)<span class="keyword"> const </span>{
+<a name="l00072"></a>00072             <span class="keywordflow">return</span> Surface (TTF_RenderText_Solid (*font, text.c_str (), **color_));
+<a name="l00073"></a>00073         };
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075         <span class="keyword">private</span>:
+<a name="l00079"></a>00079             Color color_;
+<a name="l00080"></a>00080     }; <span class="comment">//Solid</span>
+<a name="l00081"></a>00081 
+<a name="l00090"></a>00090     <span class="keyword">template</span>&lt;&gt;
+<a name="l00091"></a>00091     Surface Solid::render&lt;TEXT&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
+<a name="l00092"></a>00092         <span class="keywordflow">return</span> Surface (TTF_RenderText_Solid (*font, text.c_str (), **color_));
+<a name="l00093"></a>00093     };
+<a name="l00094"></a>00094 
+<a name="l00103"></a>00103     <span class="keyword">template</span>&lt;&gt;
+<a name="l00104"></a>00104     Surface Solid::render&lt;UTF8&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
+<a name="l00105"></a>00105         <span class="keywordflow">return</span> Surface (TTF_RenderUTF8_Solid (*font, text.c_str (), **color_));
+<a name="l00106"></a>00106     };
+<a name="l00107"></a>00107 
+<a name="l00116"></a>00116     <span class="comment">/*template&lt;&gt;</span>
+<a name="l00117"></a>00117 <span class="comment">    Surface Solid::render&lt;UNICODE&gt; (const Font&amp; font, const string&amp; text) const {</span>
+<a name="l00118"></a>00118 <span class="comment">        return /Surface (TTF_RenderUNICODE_Solid (*font, text.c_str (), **color_));</span>
+<a name="l00119"></a>00119 <span class="comment">    };*/</span>
+<a name="l00120"></a>00120 
+<a name="l00125"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html">00125</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Shaded.html" title="Renders a font as shaded.">Shaded</a> {
+<a name="l00132"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a3dbb56b0b4d52057d89c0af8c7ed1077">00132</a>         <a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a3dbb56b0b4d52057d89c0af8c7ed1077">Shaded</a> (<span class="keyword">const</span> Color&amp; fg, <span class="keyword">const</span> Color&amp; bg) : fg_ (fg), bg_ (bg) {};
+<a name="l00133"></a>00133 
+<a name="l00142"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a81bfaf5d21a6860ead2135169055a11c">00142</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a81bfaf5d21a6860ead2135169055a11c">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
+<a name="l00143"></a>00143             <span class="keywordflow">return</span> TTF_RenderGlyph_Shaded (*font, c, **fg_, **bg_);
+<a name="l00144"></a>00144         };
+<a name="l00145"></a>00145 
+<a name="l00156"></a>00156         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Encoding&gt;
+<a name="l00157"></a><a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a9bd5e28c90f6ec16832164cb74f973a3">00157</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Shaded.html#a9bd5e28c90f6ec16832164cb74f973a3">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text)<span class="keyword"> const </span>{
+<a name="l00158"></a>00158             <span class="keywordflow">return</span> Surface (TTF_RenderText_Shaded (*font, text.c_str (), **fg_, **bg_));
+<a name="l00159"></a>00159         };
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161         <span class="keyword">private</span>:
+<a name="l00165"></a>00165             Color fg_;
+<a name="l00166"></a>00166 
+<a name="l00170"></a>00170             Color bg_;
+<a name="l00171"></a>00171     }; <span class="comment">//Shaded</span>
+<a name="l00172"></a>00172 
+<a name="l00181"></a>00181     <span class="keyword">template</span>&lt;&gt;
+<a name="l00182"></a>00182     Surface Shaded::render&lt;TEXT&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
+<a name="l00183"></a>00183         <span class="keywordflow">return</span> Surface (TTF_RenderText_Shaded (*font, text.c_str (), **fg_, **bg_));
+<a name="l00184"></a>00184     };
+<a name="l00185"></a>00185 
+<a name="l00194"></a>00194     <span class="keyword">template</span>&lt;&gt;
+<a name="l00195"></a>00195     Surface Shaded::render&lt;UTF8&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
+<a name="l00196"></a>00196         <span class="keywordflow">return</span> Surface (TTF_RenderUTF8_Shaded (*font, text.c_str (), **fg_, **bg_));
+<a name="l00197"></a>00197     };
+<a name="l00198"></a>00198 
+<a name="l00207"></a>00207     <span class="comment">/*template&lt;&gt;</span>
+<a name="l00208"></a>00208 <span class="comment">    Surface Shaded::render&lt;UNICODE&gt; (const Font&amp; font, const string&amp; text) const {</span>
+<a name="l00209"></a>00209 <span class="comment">        return Surface (TTF_RenderUNICODE_Shaded (*font, text.c_str (), **fg_, **bg_));</span>
+<a name="l00210"></a>00210 <span class="comment">    };*/</span>
+<a name="l00211"></a>00211 
+<a name="l00216"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html">00216</a>     <span class="keyword">struct </span><a class="code" href="structsdl_1_1ttf_1_1Blended.html" title="Renders a font as blended.">Blended</a> {
+<a name="l00222"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html#a72d17879e1127abda584f78a3eeb0e8a">00222</a>         <a class="code" href="structsdl_1_1ttf_1_1Blended.html#a72d17879e1127abda584f78a3eeb0e8a">Blended</a> (<span class="keyword">const</span> Color&amp; color) : color_ (color) {};
+<a name="l00223"></a>00223 
+<a name="l00232"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html#a2ee73a5fd8fd2f1af20de5654366915c">00232</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Blended.html#a2ee73a5fd8fd2f1af20de5654366915c">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keywordtype">char</span> c)<span class="keyword"> const </span>{
+<a name="l00233"></a>00233             <span class="keywordflow">return</span> Surface (TTF_RenderGlyph_Blended (*font, c, **color_));
+<a name="l00234"></a>00234         };
+<a name="l00235"></a>00235 
+<a name="l00246"></a>00246         <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Encoding&gt;
+<a name="l00247"></a><a class="code" href="structsdl_1_1ttf_1_1Blended.html#a6f75ed31298c6396627afe237f7f6ff4">00247</a>         Surface <a class="code" href="structsdl_1_1ttf_1_1Blended.html#a6f75ed31298c6396627afe237f7f6ff4">render</a> (<span class="keyword">const</span> <a class="code" href="structsdl_1_1ttf_1_1Font.html" title="Represents a font.">Font</a>&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text)<span class="keyword"> const </span>{
+<a name="l00248"></a>00248             <span class="keywordflow">return</span> Surface (TTF_RenderText_Blended (*font, text.c_str (), **color_));
+<a name="l00249"></a>00249         };
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251         <span class="keyword">private</span>:
+<a name="l00255"></a>00255             Color color_;
+<a name="l00256"></a>00256     }; <span class="comment">//Blended</span>
+<a name="l00257"></a>00257 
+<a name="l00266"></a>00266     <span class="keyword">template</span>&lt;&gt;
+<a name="l00267"></a>00267     Surface Blended::render&lt;TEXT&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
+<a name="l00268"></a>00268         <span class="keywordflow">return</span> Surface (TTF_RenderText_Blended (*font, text.c_str (), **color_));
+<a name="l00269"></a>00269     };
+<a name="l00270"></a>00270 
+<a name="l00279"></a>00279     <span class="keyword">template</span>&lt;&gt;
+<a name="l00280"></a>00280     Surface Blended::render&lt;UTF8&gt; (<span class="keyword">const</span> Font&amp; font, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text) <span class="keyword">const</span> {
+<a name="l00281"></a>00281         <span class="keywordflow">return</span> Surface (TTF_RenderUTF8_Blended (*font, text.c_str (), **color_));
+<a name="l00282"></a>00282     };
+<a name="l00283"></a>00283 
+<a name="l00292"></a>00292     <span class="comment">/*template&lt;&gt;</span>
+<a name="l00293"></a>00293 <span class="comment">    Surface Blended::render&lt;UNICODE&gt; (const Font&amp; font, const string&amp; text) const {</span>
+<a name="l00294"></a>00294 <span class="comment">        return Surface (TTF_RenderUNICODE_Blended (*font, text.c_str (), **color_));</span>
+<a name="l00295"></a>00295 <span class="comment">    };*/</span>
+<a name="l00296"></a>00296 }; <span class="comment">//ttf</span>
+<a name="l00297"></a>00297 }; <span class="comment">//sdl</span>
+<a name="l00298"></a>00298 
+<a name="l00299"></a>00299 <span class="preprocessor">#endif //SDL_TTF_RENDERMODES_H</span>
+<a name="l00300"></a>00300 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="RenderModes_8h.html">RenderModes.h</a>      </li>
-      <li class="footer">Generated on Tue Aug 23 2011 19:42:29 for SDL_ttf++ by&#160;
+      <li class="footer">Generated on Tue Aug 23 2011 20:45:57 for SDL_ttf++ by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>
