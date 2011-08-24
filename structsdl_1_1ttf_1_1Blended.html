@@ -98,21 +98,12 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdl_1_1ttf_1_1Blended.html#a72d17879e1127abda584f78a3eeb0e8a">Blended</a> (const Color &amp;color)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Surface&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsdl_1_1ttf_1_1Blended.html#a2ee73a5fd8fd2f1af20de5654366915c">render</a> (const <a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a> &amp;font, char c) const </td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;int Encoding&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">Surface&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structsdl_1_1ttf_1_1Blended.html#a6f75ed31298c6396627afe237f7f6ff4">render</a> (const <a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a> &amp;font, const string &amp;text) const </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">Surface&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structsdl_1_1ttf_1_1Blended.html#a71df590d4efa836d1507d4892e9506e3">render</a> (const <a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a> &amp;font, const string &amp;text) const </td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Renders a font as blended. </p>
-<p>UNICODE specialization. Returns a Surface containg text rendered in font.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">font</td><td>The font to use. </td></tr>
-    <tr><td class="paramname">text</td><td>The string to render.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The rendered Surface. </dd></dl>
 
-<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00216">216</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
+<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00222">222</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a72d17879e1127abda584f78a3eeb0e8a"></a><!-- doxytag: member="sdl::ttf::Blended::Blended" ref="a72d17879e1127abda584f78a3eeb0e8a" args="(const Color &amp;color)" -->
 <div class="memitem">
@@ -136,7 +127,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00222">222</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
+<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00228">228</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
 
 </div>
 </div>
@@ -175,16 +166,16 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The rendered Surface. </dd></dl>
 
-<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00232">232</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
+<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00238">238</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6f75ed31298c6396627afe237f7f6ff4"></a><!-- doxytag: member="sdl::ttf::Blended::render" ref="a6f75ed31298c6396627afe237f7f6ff4" args="(const Font &amp;font, const string &amp;text) const " -->
+<a class="anchor" id="a71df590d4efa836d1507d4892e9506e3"></a><!-- doxytag: member="sdl::ttf::Blended::render" ref="a71df590d4efa836d1507d4892e9506e3" args="(const Font &amp;font, const string &amp;text) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Surface sdl::ttf::Blended::render&lt; UTF8 &gt; </td>
+          <td class="memname">Surface sdl::ttf::Blended::render&lt; UNICODE &gt; </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structsdl_1_1ttf_1_1Font.html">Font</a> &amp;&#160;</td>
           <td class="paramname"><em>font</em>, </td>
@@ -217,27 +208,9 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The rendered Surface.</dd></dl>
-<p>TEXT specialization. Returns a Surface containg text rendered in font.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">font</td><td>The font to use. </td></tr>
-    <tr><td class="paramname">text</td><td>The string to render.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The rendered Surface.</dd></dl>
-<p>UTF8 specialization. Returns a Surface containg text rendered in font.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">font</td><td>The font to use. </td></tr>
-    <tr><td class="paramname">text</td><td>The string to render.</td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The rendered Surface. </dd></dl>
 
-<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00247">247</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
+<p>Definition at line <a class="el" href="RenderModes_8h_source.html#l00253">253</a> of file <a class="el" href="RenderModes_8h_source.html">RenderModes.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +224,7 @@ Public Member Functions</h2></td></tr>
       <li class="navelem"><a class="el" href="namespacesdl.html">sdl</a>      </li>
       <li class="navelem"><a class="el" href="namespacesdl_1_1ttf.html">ttf</a>      </li>
       <li class="navelem"><a class="el" href="structsdl_1_1ttf_1_1Blended.html">Blended</a>      </li>
-      <li class="footer">Generated on Tue Aug 23 2011 20:45:57 for SDL_ttf++ by&#160;
+      <li class="footer">Generated on Tue Aug 23 2011 21:05:47 for SDL_ttf++ by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </li>
     </ul>
