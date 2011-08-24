@@ -154,7 +154,8 @@ namespace ttf {
     }; //Font
 
     /**
-     * TEXT specialization. Returns the size of the text as it would be rendered.
+     * @overload template<int Encoding> void size (const string& text, int* height, int* width) const
+     * @brief TEXT specialization. Returns the size of the text as it would be rendered.
      *
      * @tparam Encoding The string encoding.
      *
@@ -168,7 +169,8 @@ namespace ttf {
     };
 
     /**
-     * UTF8 specialization. Returns the size of the text as it would be rendered.
+     * @overload template<int Encoding> void size (const string& text, int* height, int* width) const
+     * @brief UTF8 specialization. Returns the size of the text as it would be rendered.
      *
      * @tparam Encoding The string encoding.
      *
@@ -182,7 +184,8 @@ namespace ttf {
     };
     
     /**
-     * UNICODE specialization. Returns the size of the text as it would be rendered.
+     * @overload template<int Encoding> void size (const string& text, int* height, int* width) const
+     * @brief UNICODE specialization. Returns the size of the text as it would be rendered.
      *
      * @tparam Encoding The string encoding.
      *
