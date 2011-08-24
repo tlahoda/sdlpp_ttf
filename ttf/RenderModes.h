@@ -1,5 +1,6 @@
 /**
- * @file RenderModes.h, Contains the Solid, Shaded, and Blended render mode classes.
+ * @file RenderModes.h
+ * Contains the Solid, Shaded, and Blended render mode classes.
  *
  * Copyright (C) 2005 Thomas P. Lahoda
  *
@@ -33,37 +34,38 @@ namespace ttf {
     using namespace video;
 
     /**
-     * @struct Solid, Renders a font as solid.
+     * @struct Solid
+     * @brief Renders a font as solid.
      */
     struct Solid {
         /**
          * Constructs a Solid font renderer with the specified color mask.
          *
-         * @param const Color& color, The color mask for the Font.
+         * @param color The color mask for the Font.
          */
         Solid (const Color& color) : color_ (color) {};
 
         /**
          * Returns a Surface containing c rendered in font.
          *
-         * @param const Font& font, The Font to use.
-         * @param char c, The character to render.
+         * @param font The Font to use.
+         * @param c The character to render.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         Surface render (const Font& font, char c) const {
             return Surface (TTF_RenderGlyph_Solid (*font, c, **color_));
         };
 
         /**
-         * Returns a Surface containg text render in font.
+         * Returns a Surface containg text rendered in font.
          *
-         * @tparam Encoding, The string encoding.
+         * @tparam Encoding The string encoding.
          *
-         * @param const Font& font, The font to use.
-         * @param const string& text, The string to render.
+         * @param font The font to use.
+         * @param text The string to render.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         template<int Encoding>
         Surface render (const Font& font, const string& text) const {
@@ -78,12 +80,12 @@ namespace ttf {
     }; //Solid
 
     /**
-     * TEXT specialization. Returns a Surface containg text render in font.
+     * TEXT specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     template<>
     Surface Solid::render<TEXT> (const Font& font, const string& text) const {
@@ -91,12 +93,12 @@ namespace ttf {
     };
 
     /**
-     * UTF8 specialization. Returns a Surface containg text render in font.
+     * UTF8 specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     template<>
     Surface Solid::render<UTF8> (const Font& font, const string& text) const {
@@ -104,12 +106,12 @@ namespace ttf {
     };
 
     /**
-     * UNICODE specialization. Returns a Surface containg text render in font.
+     * UNICODE specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     /*template<>
     Surface Solid::render<UNICODE> (const Font& font, const string& text) const {
@@ -117,38 +119,39 @@ namespace ttf {
     };*/
 
     /**
-     * @struct Shaded, Renders a font as shaded.
+     * @struct Shaded
+     * @brief Renders a font as shaded.
      */
     struct Shaded {
         /**
          * Constructs a Shaded font renderer with the specified foreground and background colors. 
          *
-         * @param const Color& , The foreground Color.
-         * @param const Color& , The background Color.
+         * @param fg The foreground Color.
+         * @param bg The background Color.
          */
         Shaded (const Color& fg, const Color& bg) : fg_ (fg), bg_ (bg) {};
 
         /**
          * Returns a Surface containing c rendered in font.
          *
-         * @param const Font& font, The Font to use.
-         * @param char c, The character to render.
+         * @param font The Font to use.
+         * @param c The character to render.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         Surface render (const Font& font, char c) const {
             return TTF_RenderGlyph_Shaded (*font, c, **fg_, **bg_);
         };
 
         /**
-         * Returns a Surface containg text render in font.
+         * Returns a Surface containg text rendered in font.
          *
-         * @tparam Encoding, The string encoding.
+         * @tparam Encoding The string encoding.
          *
-         * @param const Font& font, The font to use.
-         * @param const string& text, The string to render.
+         * @param font The font to use.
+         * @param text The string to render.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         template<int Encoding>
         Surface render (const Font& font, const string& text) const {
@@ -168,12 +171,12 @@ namespace ttf {
     }; //Shaded
 
     /**
-     * TEXT specialization. Returns a Surface containg text render in font.
+     * TEXT specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     template<>
     Surface Shaded::render<TEXT> (const Font& font, const string& text) const {
@@ -181,12 +184,12 @@ namespace ttf {
     };
 
     /**
-     * UTF8 specialization. Returns a Surface containg text render in font.
+     * UTF8 specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     template<>
     Surface Shaded::render<UTF8> (const Font& font, const string& text) const {
@@ -194,12 +197,12 @@ namespace ttf {
     };
 
     /**
-     * UNICODE specialization. Returns a Surface containg text render in font.
+     * UNICODE specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     /*template<>
     Surface Shaded::render<UNICODE> (const Font& font, const string& text) const {
@@ -207,37 +210,38 @@ namespace ttf {
     };*/
 
     /**
-     * @struct Blended, Renders a font as blended.
+     * @struct Blended
+     * @brief Renders a font as blended.
      */
     struct Blended {
         /**
          * Constructs a Blended font renderer with the specified color mask.
          *
-         * @param const Color& color, The color mask for the Font.
+         * @param color The color mask for the Font.
          */
         Blended (const Color& color) : color_ (color) {};
 
         /**
          * Returns a Surface containing c rendered in font.
          *
-         * @param const Font& font, The Font to use.
-         * @param char c, The character to render.
+         * @param font The Font to use.
+         * @param c The character to render.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         Surface render (const Font& font, char c) const {
             return Surface (TTF_RenderGlyph_Blended (*font, c, **color_));
         };
 
         /**
-         * Returns a Surface containg text render in font.
+         * Returns a Surface containg text rendered in font.
          *
-         * @tparam Encoding, The string encoding.
+         * @tparam Encoding The string encoding.
          *
-         * @param const Font& font, The font to use.
-         * @param const string& text, The string to render.
+         * @param font The font to use.
+         * @param text The string to render.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         template<int Encoding>
         Surface render (const Font& font, const string& text) const {
@@ -252,12 +256,12 @@ namespace ttf {
     }; //Blended
 
     /**
-     * TEXT specialization. Returns a Surface containg text render in font.
+     * TEXT specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     template<>
     Surface Blended::render<TEXT> (const Font& font, const string& text) const {
@@ -265,12 +269,12 @@ namespace ttf {
     };
 
     /**
-     * UTF8 specialization. Returns a Surface containg text render in font.
+     * UTF8 specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     template<>
     Surface Blended::render<UTF8> (const Font& font, const string& text) const {
@@ -278,12 +282,12 @@ namespace ttf {
     };
 
     /**
-     * UNICODE specialization. Returns a Surface containg text render in font.
+     * UNICODE specialization. Returns a Surface containg text rendered in font.
      *
-     * @param const Font& font, The font to use.
-     * @param const string& text, The string to render.
+     * @param font The font to use.
+     * @param text The string to render.
      *
-     * @return Surface, The rendered Surface.
+     * @return The rendered Surface.
      */
     /*template<>
     Surface Blended::render<UNICODE> (const Font& font, const string& text) const {

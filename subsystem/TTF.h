@@ -1,5 +1,6 @@
 /**
- * @file TTF.h, Contains the TTF class.
+ * @file TTF.h
+ * Contains the TTF class.
  *
  * Copyright (C) 2011 Thomas P. Lahoda
  *
@@ -29,13 +30,14 @@ namespace subsystem {
     using namespace std;
 
     /**
-     * @struct TTF, The True Type Font subsystem
+     * @struct TTF
+     * @brief The True Type Font subsystem
      */
     struct TTF {
         /**
          * Returns an instance of the TTF subsystem.
          *
-         * @return TTF&, A reference to the TTF subsystem.
+         * @return A reference to the TTF subsystem.
          */
         static TTF& instance () {
             static TTF instance_;
@@ -45,21 +47,17 @@ namespace subsystem {
         /**
          * Determines if the TTF subsystem is open.
          *
-         * @return bool, True if the TTF subsystem is open, false otherwise.
+         * @return True if the TTF subsystem is open, false otherwise.
          */
         static bool isOpen () { return TTF_WasInit (); };
 
         /**
          * Enable byte swapping relative to the system's endianess for UNICODE data.
-         *
-         * @return void.
          */
         void enableByteSwappedUNICODE () { TTF_ByteSwappedUNICODE (1); };
 
         /**
          * Disable byte swapping relative to the system's endianess for UNICODE date.
-         *
-         * @return void.
          */
         void disableByteSwappedUNICODE () { TTF_ByteSwappedUNICODE (0); };
 
@@ -67,7 +65,7 @@ namespace subsystem {
             /**
              * Opens the TTF subsystem.
              *
-             * @return bool, True if the TTF subsystem was opened, false otherwise.
+             * @return True if the TTF subsystem was opened, false otherwise.
              */
             bool open () {
                 init ();
@@ -77,7 +75,7 @@ namespace subsystem {
             /**
              * Closes the TTF subssytem.
              *
-             * @return bool, True if the TTF subsystem was closed, false otherwise.
+             * @return True if the TTF subsystem was closed, false otherwise.
              */
             bool close () {
                 quit ();
@@ -87,8 +85,6 @@ namespace subsystem {
         private:
             /**
              * Initialize the TTF subsystem.
-             *
-             * @return void.
              */
             void init () {
                 if (TTF_Init () == -1) 
@@ -97,8 +93,6 @@ namespace subsystem {
 
             /**
              * Quits the TTF subssytem.
-             *
-             * @return void.
              */
             void quit () { TTF_Quit (); };
         

@@ -1,5 +1,6 @@
 /**
- * @file Glyph.h, Contains the Glyph class.
+ * @file Glyph.h
+ * Contains the Glyph class.
  *
  * Copyright (C) 2005 Thomas P. Lahoda
  *
@@ -29,16 +30,17 @@ namespace ttf {
     using namespace std;
 
     /**
-     * @struct Glyph, Represents a character glyph.
+     * @struct Glyph
+     * @brief Represents a character glyph.
      */
     struct Glyph {
         /**
          * Constructs a Glyph of c using font.
          *
-         * @tparam Font, The Font. This is templated to avoid an include conflict.
+         * @tparam Font The Font. This is templated to avoid an include conflict.
          *
-         * @param const Font& font, The Font to use.
-         * @param char c, The character for which to create the Glyph.
+         * @param font The Font to use.
+         * @param c The character for which to create the Glyph.
          */
         template<class Font>
         Glyph (const Font& font, char c) 
@@ -50,35 +52,35 @@ namespace ttf {
         /**
          * Returns the left side of the Glyph.
          *
-         * @return int, The left side.
+         * @return The left side.
          */
         int minx () const { return minx_; };
         
         /**
          * Returns the right side of the Glyph.
          *
-         * @return int, The right side.
+         * @return The right side.
          */
         int maxx () const { return maxx_; };
         
         /**
          * Returns the bottom of the Glyph.
          *
-         * @return int, The bottom.
+         * @return The bottom.
          */
         int miny () const { return miny_; };
         
         /**
          * Returns the top of the Glyph.
          *
-         * @return int, The top.
+         * @return The top.
          */
         int maxy () const { return maxy_; };
         
         /**
          * Returns the width of the Glyph including spacing.
          *
-         * @return int, The width including spacing.
+         * @return The width including spacing.
          */
         int advance () const { return advance_; };
 

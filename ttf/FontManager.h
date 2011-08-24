@@ -1,5 +1,6 @@
 /**
- * @file FontManager.h, Contains the FontManager class.
+ * @file FontManager.h
+ * Contains the FontManager class.
  *
  * Copyright (C) 2005 Thomas P. Lahoda
  *
@@ -31,13 +32,14 @@ namespace ttf {
     using namespace std;
 
     /**
-     * @struct FontManager, Manages fonts.
+     * @struct FontManager 
+     * @brief Manages fonts.
      */
     struct FontManager {
         /**
          * Returns an instance of the FontManager.
          *
-         * @return FontManager&, A rerence to the FontManager.
+         * @return A rerence to the FontManager.
          */
         static FontManager& instance () {
             static FontManager instance_;
@@ -49,10 +51,10 @@ namespace ttf {
         /**
          * Returns the Font of the given name in the given point size.
          *
-         * @param const string& fileName, The name of the Font to retrieve.
-         * @param int pointSize, The point size.
+         * @param fileName The name of the Font to retrieve.
+         * @param pointSize The point size.
          *
-         * @return Font. The Font.
+         * @return The Font.
          */
         Font font (const string& fileName, int pointSize) {
             FontMap::iterator nameIter = fonts_.find (fileName);
@@ -83,26 +85,28 @@ namespace ttf {
             /**
              * Copy constructs a FontManager.
              *
-             * @param const FontManager& rhs, The FontManager to copy..
+             * @param rhs The FontManager to copy..
              */
             FontManager (const FontManager& rhs);
             
             /**
              * The assignment operator.
              *
-             * @param const FontManager& rhs, The FontManager from which to assign.
+             * @param rhs The FontManager from which to assign.
              *
-             * @return FontManager&, A Reference to this FontManager.
+             * @return A Reference to this FontManager.
              */
             FontManager& operator= (const FontManager& rhs);
 
             /**
-             * The type of the point size to font maps.
+             * @typedef map<int, Font> FontSizeMap
+             * @brief The type of the point size to font maps.
              */
             typedef map<int, Font> FontSizeMap;
 
             /**
-             * The type of the string to FontSizeMap map.
+             * @typedef map<string, FontSizeMap> FontMap
+             * @brief The type of the string to FontSizeMap map.
              */
             typedef map<string, FontSizeMap> FontMap;
 

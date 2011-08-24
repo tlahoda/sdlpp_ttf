@@ -1,5 +1,6 @@
 /**
- * @file Font.h, Contains the Font class.
+ * @file Font.h
+ * Contains the Font class.
  *
  * Copyright (C) 2005 Thomas P. Lahoda
  *
@@ -33,12 +34,14 @@ namespace ttf {
     using namespace video;
 
     /**
-     * The different encoding.
+     * @enum Encodings
+     * @brief The different encodings.
      */
     enum Encodings { TEXT, UTF8, UNICODE };
 
     /**
-     * Represents a font.
+     * @struct Font
+     * @brief Represents a font.
      */
     struct Font {
         /**
@@ -58,13 +61,13 @@ namespace ttf {
         /**
          * Returns a Surface containg the text rendered in the render mode.
          *
-         * @tparam Encoding, The string encoding.
-         * @tparam RenderMode, The mode to use in rendering.
+         * @tparam Encoding The string encoding.
+         * @tparam RenderMode The mode to use in rendering.
          *
-         * @param const string& text, The string to render.
-         * @param const RenderMode& mode, The mode to use in rendering.
+         * @param text The string to render.
+         * @param mode The mode to use in rendering.
          *
-         * @return Surface, The rendered Surface.
+         * @return The rendered Surface.
          */
         template<int Encoding, class RenderMode>
         Surface render (const string& text, const RenderMode& mode) const {
@@ -74,13 +77,11 @@ namespace ttf {
         /**
          * Returns the size of the text as it would be rendered.
          *
-         * @tparam Encoding, The string encoding.
+         * @tparam Encoding The string encoding.
          *
-         * @param const string& text, The text.
-         * @param int* height, The rendered height.
-         * @param int* width, The rendered width.
-         *
-         * @return void.
+         * @param text The text.
+         * @param height The rendered height.
+         * @param width The rendered width.
          */
         template<int Encoding>
         void size (const string& text, int* height, int* width) const {
@@ -90,60 +91,58 @@ namespace ttf {
         /**
          * Returns a Glyph of c.
          *
-         * @param char c, The character to render.
+         * @param c The character to render.
          *
-         * @return Glyph, A Glyph containing the character.
+         * @return A Glyph containing the character.
          */
         Glyph glyph (char c) const { return Glyph (*this, c); };
 
         /**
          * Returns the underlying TTF_Font structure.
          *
-         * @return TTF_Font*, The underlying TTF_Font structure.
+         * @return The underlying TTF_Font structure.
          */
         TTF_Font* operator* () const { return font_.get (); };
 
         /**
          * Returns the font height.
          *
-         * @return int, The height.
+         * @return The height.
          */
         int height () const { return TTF_FontHeight (font_.get ()); };
 
         /**
          * Returns the maximum pixel ascent of all Glyphs of the font.
          *
-         * @return int, The maximum pixel ascent.
+         * @return The maximum pixel ascent.
          */
         int ascent () const { return TTF_FontAscent (font_.get ()); };
 
         /**
          * Returns the maximum pixel descent of all Glyphs of the font.
          *
-         * @return int, The maximum pixel descent.
+         * @return The maximum pixel descent.
          */
         int descent () const { return TTF_FontDescent (font_.get ()); };
 
         /**
          * Returns the recommended pixel height of a line of text for the font.
          *
-         * @return int, The recommended line height.
+         * @return The recommended line height.
          */
         int lineSkip () const { return TTF_FontLineSkip (font_.get ()); };
 
         /**
          * Gets the font's style.
          *
-         * @return int, The style.
+         * @return The style.
          */
         int getStyle () { return TTF_GetFontStyle (font_.get ()); };
 
         /**
          * Sets the fon't style.
          *
-         * @param int style, The style.
-         *
-         * @return void.
+         * @param style The style.
          */
         void setStyle (int style) { TTF_SetFontStyle (font_.get (), style); };
 
@@ -157,13 +156,11 @@ namespace ttf {
     /**
      * TEXT specialization. Returns the size of the text as it would be rendered.
      *
-     * @tparam Encoding, The string encoding.
+     * @tparam Encoding The string encoding.
      *
-     * @param const string& text, The text.
-     * @param int* height, The rendered height.
-     * @param int* width, The rendered width.
-     *
-     * @return void.
+     * @param text The text.
+     * @param height The rendered height.
+     * @param width The rendered width.
      */
     template<>
     void Font::size<TEXT> (const string& text, int* height, int* width) const {
@@ -173,13 +170,11 @@ namespace ttf {
     /**
      * UTF8 specialization. Returns the size of the text as it would be rendered.
      *
-     * @tparam Encoding, The string encoding.
+     * @tparam Encoding The string encoding.
      *
-     * @param const string& text, The text.
-     * @param int* height, The rendered height.
-     * @param int* width, The rendered width.
-     *
-     * @return void.
+     * @param text The text.
+     * @param height The rendered height.
+     * @param width The rendered width.
      */
     template<>
     void Font::size<UTF8> (const string& text, int* height, int* width) const {
@@ -189,13 +184,11 @@ namespace ttf {
     /**
      * UNICODE specialization. Returns the size of the text as it would be rendered.
      *
-     * @tparam Encoding, The string encoding.
+     * @tparam Encoding The string encoding.
      *
-     * @param const string& text, The text.
-     * @param int* height, The rendered height.
-     * @param int* width, The rendered width.
-     *
-     * @return void.
+     * @param text The text.
+     * @param height The rendered height.
+     * @param width The rendered width.
      */
     template<>
     void Font::size<UNICODE> (const string& text, int* height, int* width) const {
